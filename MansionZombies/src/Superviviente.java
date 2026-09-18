@@ -1,5 +1,4 @@
 public class Superviviente {
-    int dificultad;
     int vida_max;
     int vida_actual;
     int puntos_ataque;
@@ -8,8 +7,7 @@ public class Superviviente {
     int num_protecciones;
 
 
-    public Superviviente(int dificultad) {
-        this.dificultad = dificultad;
+    public Superviviente() {
         this.vida_max = 20;
         this.vida_actual = 20;
         this.puntos_ataque = 4;
@@ -18,13 +16,6 @@ public class Superviviente {
         this.num_protecciones = 0;
     }
 
-    public int getDificultad() {
-        return dificultad;
-    }
-
-    public void setDificultad(int dificultad) {
-        this.dificultad = dificultad;
-    }
 
     public int getVida_max() {
         return vida_max;
@@ -76,22 +67,14 @@ public class Superviviente {
 
     @Override
     public String toString() {
-        return "Superviviente{" +
-                "dificultad=" + dificultad +
-                ", vida_max=" + vida_max +
-                ", vida_actual=" + vida_actual +
-                ", puntos_ataque=" + puntos_ataque +
-                ", botiquin=" + botiquin +
-                ", num_armas=" + num_armas +
-                ", num_protecciones=" + num_protecciones +
-                '}';
+        return "=======Superviviente==========" +
+                "\nvida_max=" + vida_max +
+                "\nvida_actual=" + vida_actual +
+                "\npuntos_ataque=" + puntos_ataque +
+                "\nbotiquin=" + botiquin +
+                "\nnum_armas=" + num_armas +
+                "\nnum_protecciones=" + num_protecciones +
+                "\n==============================";
     }
 
-    public static void main(String[] args) {
-        Superviviente superviviente1 = new Superviviente(1);
-        System.out.println(superviviente1);
-        Superviviente superviviente2 = new Superviviente(1);
-        superviviente2.setNum_armas(4);
-        System.out.println(superviviente2);
-    }
 }
