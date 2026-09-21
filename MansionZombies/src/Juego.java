@@ -50,6 +50,7 @@ public class Juego {
             superviviente.setNum_protecciones(superviviente.getNum_protecciones()+1);
             System.out.println("Has encontrado una proteccion");
         } else if (dado_busqueda < 91 && dado_busqueda >=76) {
+            System.out.println("Has conseguido un botiquin para curarte");
             superviviente.setBotiquin(true);
         }else{
             System.out.println("que mala suerte has hecho ruido, vuelves a tirar el dado");
