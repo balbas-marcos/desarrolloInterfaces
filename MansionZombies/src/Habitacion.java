@@ -8,6 +8,13 @@ public class Habitacion {
     }
 
 
+    public void avanzarHabitacion(Habitacion habitacion) {
+        habitacion.setNum_hab(habitacion.getNum_hab()+1);
+        habitacion.setIntentos_busqueda(3);
+        habitacion.setNum_zombies_activos(1);
+
+    }
+
     public int getNum_hab() {
         return num_hab;
     }
@@ -21,7 +28,11 @@ public class Habitacion {
     }
 
     public void setIntentos_busqueda(int intentos_busqueda) {
-        this.intentos_busqueda = intentos_busqueda;
+        if (intentos_busqueda < 0) {
+            this.intentos_busqueda = 0;
+        } else {
+            this.intentos_busqueda = intentos_busqueda;
+        }
     }
 
     public int getNum_zombies_activos() {

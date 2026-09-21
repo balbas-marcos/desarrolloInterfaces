@@ -30,7 +30,11 @@ public class Superviviente {
     }
 
     public void setVida_actual(int vida_actual) {
-        this.vida_actual = vida_actual;
+        if (vida_actual < 0) {
+            this.vida_actual = 0;
+        } else {
+            this.vida_actual = vida_actual;
+        }
     }
 
     public int getPuntos_ataque() {
