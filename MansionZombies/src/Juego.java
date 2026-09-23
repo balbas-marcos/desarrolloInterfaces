@@ -9,6 +9,7 @@ public class Juego {
 
     public static void combate(Superviviente superviviente, Zombie zombie, Habitacion habitacion) {
         Dado dado = new Dado();
+        zombie.resetear(habitacion);
         int ronda = 1;
         System.out.println(superviviente);
         System.out.println(zombie);
@@ -29,14 +30,10 @@ public class Juego {
                 superviviente.setVida_actual(superviviente.getVida_actual() - ataque_zombie);
             }
 
-
             if (superviviente.getVida_actual() < 1) {
                 System.out.println("HAS PERDIDO");
             }
             ronda++;
-        }
-        if(zombie.getVida_actual() < 1){
-            zombie.resetear(zombie, habitacion);
         }
     }
 
@@ -70,9 +67,6 @@ public class Juego {
     }
 
 
-    public int getHab_actual() {
-        return hab_actual;
-    }
 
     public void setHab_actual(int hab_actual) {
         this.hab_actual = hab_actual;
@@ -80,9 +74,5 @@ public class Juego {
 
     public int getHab_max() {
         return hab_max;
-    }
-
-    public void setHab_max(int hab_max) {
-        this.hab_max = hab_max;
     }
 }

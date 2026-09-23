@@ -10,7 +10,7 @@ public class Main {
         Juego juego = new Juego(dificultad());
         Zombie z1 = new Zombie((int) ((Math.random() * 2) + 1) + 2 - habitacion.getNum_hab() - 1, (int) (Math.random() * 2) + 2 - habitacion.getNum_hab() - 1);
         while (true) {
-            int turno = menu_turno(superviviente, z1, habitacion);
+            int turno = menu_turno(superviviente, z1, habitacion, juego.getHab_max());
             switch (turno) {
                 case 1:
                     juego.combate(superviviente, z1, habitacion);
@@ -31,6 +31,8 @@ public class Main {
                         System.out.println("Lograste salir de la mansión");
                     }
                     break;
+                case 4:
+                    superviviente.curarse();
             }
         }
 
@@ -74,7 +76,7 @@ public class Main {
         return nivel;
     }
 
-    public static int menu_turno(Superviviente superviviente, Zombie zombie, Habitacion habitacion) {
+    public static int menu_turno(Superviviente superviviente, Zombie zombie, Habitacion habitacion, int hab_max) {
         Scanner sc = new Scanner(System.in);
         boolean valido = false;
         byte opcion = -1;
@@ -83,6 +85,11 @@ public class Main {
                 System.out.println("========================");
                 System.out.println("MANSION ZOMBIE");
 
+
+                if (superviviente.isBotiquin()){
+                    System.out.println(" 4. Curarse");
+                }
+
                 if (habitacion.getNum_zombies_activos() > 0) {
                     System.out.println(" 1. Combatir contra un zombie");
                 } else {
@@ -90,14 +97,10 @@ public class Main {
                         System.out.println(" 2. Buscar por la habitación (" + habitacion.getIntentos_busqueda() + " intentos)");
                     }
 
-                    if (habitacion.getNum_hab() == 5) {
+                    if (habitacion.getNum_hab() == hab_max) {
                         System.out.println(" 3. Salir de la mansión");
                     } else {
                         System.out.println(" 3. Avanzar a otra habitación");
-                    }
-
-                    if (superviviente.isBotiquin()){
-                        System.out.println(" 4. Curarse");
                     }
                 }
 

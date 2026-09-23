@@ -17,12 +17,22 @@ public class Superviviente {
     }
 
 
+    public void curarse() {
+        this.setVida_actual(this.getVida_actual()+4);
+        this.setBotiquin(false);
+    }
+
+
     public int getVida_max() {
         return vida_max;
     }
 
     public void setVida_max(int vida_max) {
-        this.vida_max = vida_max;
+        if (this.vida_actual > 20) {
+            this.vida_actual = 20;
+        } else {
+            this.vida_max = vida_max;
+        }
     }
 
     public int getVida_actual() {
