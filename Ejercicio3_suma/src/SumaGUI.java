@@ -1,14 +1,16 @@
+
+import java.util.InputMismatchException;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Alumno Mañana
  */
 public class SumaGUI extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SumaGUI.class.getName());
 
     /**
@@ -27,21 +29,97 @@ public class SumaGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        input_num1 = new javax.swing.JTextField();
+        input_num2 = new javax.swing.JTextField();
+        lbl_result = new javax.swing.JLabel();
+        btn_result = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        input_num1.addActionListener(this::input_num1ActionPerformed);
+
+        input_num2.addActionListener(this::input_num2ActionPerformed);
+
+        lbl_result.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+
+        btn_result.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_result.setText("SUMAR");
+        btn_result.addActionListener(this::btn_resultActionPerformed);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setText("numero 2");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setText("numero 1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(137, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btn_result, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(input_num2)
+                            .addComponent(input_num1))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(102, 102, 102))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lbl_result, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(112, 112, 112))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(input_num1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(input_num2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(btn_result)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_result, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+
+    private void input_num1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_num1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_num1ActionPerformed
+
+    private void input_num2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_num2ActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_input_num2ActionPerformed
+
+    private void btn_resultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_resultActionPerformed
+        // TODO add your handling code here:
+        Double suma = 0.0;
+        try {
+            Double num1 = Double.parseDouble(input_num1.getText());
+            Double num2 = Double.parseDouble(input_num2.getText());
+
+            suma = num1 + num2;
+            lbl_result.setText(suma.toString());
+        } catch (InputMismatchException | NumberFormatException e) {
+            lbl_result.setText("Syntax ERROR");
+            System.out.println("ERROR: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btn_resultActionPerformed
 
     /**
      * @param args the command line arguments
@@ -69,5 +147,11 @@ public class SumaGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_result;
+    private javax.swing.JTextField input_num1;
+    private javax.swing.JTextField input_num2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lbl_result;
     // End of variables declaration//GEN-END:variables
 }
