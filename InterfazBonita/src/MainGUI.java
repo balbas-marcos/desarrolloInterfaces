@@ -11,13 +11,12 @@ import javax.swing.JPanel;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Alumno Mañana
  */
 public class MainGUI extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainGUI.class.getName());
     int x_mouse, y_mouse;
 
@@ -35,9 +34,10 @@ public class MainGUI extends javax.swing.JFrame {
             System.getLogger(MainGUI.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
         lbl_usuario.setFont(roboFont);
+        btn_salir.setFont(roboFont);
+
         lbl_passwd.setFont(roboFont);
-        
-        lbl_logo.setIcon(new ImageIcon("/img/solo_logo_GP.png"));
+
     }
 
     /**
@@ -61,6 +61,8 @@ public class MainGUI extends javax.swing.JFrame {
         lbl_usuario = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         lbl_logo = new javax.swing.JLabel();
+        PanelImagen = new javax.swing.JPanel();
+        lbl_img_grande = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -85,6 +87,8 @@ public class MainGUI extends javax.swing.JFrame {
         });
 
         btn_salir.setBackground(new java.awt.Color(0, 0, 0));
+        btn_salir.setForeground(new java.awt.Color(255, 255, 255));
+        btn_salir.setText("X");
         btn_salir.setBorder(null);
         btn_salir.setBorderPainted(false);
         btn_salir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -128,8 +132,8 @@ public class MainGUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelPasswdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_passwd, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(input_passwd, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(input_passwd, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         panelPasswdLayout.setVerticalGroup(
             panelPasswdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +163,7 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGroup(PanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbl_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(input_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelUsuarioLayout.setVerticalGroup(
             PanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,17 +193,15 @@ public class MainGUI extends javax.swing.JFrame {
                     .addGroup(panelInicioSesionLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelInicioSesionLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(lbl_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(112, Short.MAX_VALUE))
+                    .addComponent(lbl_logo))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelInicioSesionLayout.setVerticalGroup(
             panelInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInicioSesionLayout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(lbl_logo, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(320, 320, 320)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_logo)
+                .addGap(45, 45, 45)
                 .addComponent(PanelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(panelPasswd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -208,23 +210,52 @@ public class MainGUI extends javax.swing.JFrame {
                 .addGap(23, 23, 23))
         );
 
+        PanelImagen.setBackground(new java.awt.Color(0, 0, 0));
+
+        lbl_img_grande.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imagen_lateral_original(14).png"))); // NOI18N
+        lbl_img_grande.setToolTipText("");
+
+        javax.swing.GroupLayout PanelImagenLayout = new javax.swing.GroupLayout(PanelImagen);
+        PanelImagen.setLayout(PanelImagenLayout);
+        PanelImagenLayout.setHorizontalGroup(
+            PanelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelImagenLayout.createSequentialGroup()
+                .addComponent(lbl_img_grande, javax.swing.GroupLayout.PREFERRED_SIZE, 364, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        PanelImagenLayout.setVerticalGroup(
+            PanelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelImagenLayout.createSequentialGroup()
+                .addContainerGap(102, Short.MAX_VALUE)
+                .addComponent(lbl_img_grande)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
         fondo.setLayout(fondoLayout);
         fondoLayout.setHorizontalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(topBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(fondoLayout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addComponent(panelInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(panelInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PanelImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(topBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLayout.createSequentialGroup()
                 .addComponent(topBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addGroup(fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(65, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(PanelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -252,7 +283,7 @@ public class MainGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        this.setLocation(x - x_mouse, y - y_mouse );
+        this.setLocation(x - x_mouse, y - y_mouse);
     }//GEN-LAST:event_topBarMouseDragged
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
@@ -260,12 +291,15 @@ public class MainGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_salirActionPerformed
 
     private void btn_salirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salirMouseEntered
-        btn_salir.setBackground(Color.red);
+        btn_salir.setBackground(Color.white);
+        btn_salir.setForeground(Color.red);
     }//GEN-LAST:event_btn_salirMouseEntered
 
     private void btn_salirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_salirMouseExited
         // TODO add your handling code here:
         btn_salir.setBackground(Color.black);
+        btn_salir.setForeground(Color.red);
+
     }//GEN-LAST:event_btn_salirMouseExited
 
     /**
@@ -294,12 +328,14 @@ public class MainGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelImagen;
     private javax.swing.JPanel PanelUsuario;
     private javax.swing.JButton btn_salir;
     private javax.swing.JPanel fondo;
     private javax.swing.JPasswordField input_passwd;
     private javax.swing.JTextField input_usuario;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel lbl_img_grande;
     private javax.swing.JLabel lbl_logo;
     private javax.swing.JLabel lbl_passwd;
     private javax.swing.JLabel lbl_usuario;
